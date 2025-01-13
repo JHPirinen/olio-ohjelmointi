@@ -17,7 +17,6 @@ int game(int maxnum){
     int peli = 1;
     srand(time(NULL));
     int randNum = (rand() % maxnum) + 1;
-    cout << randNum << endl;
     while(peli == 1){
         cout << "Arvaa satunnainen luku: ";
         cin >> arpa;
