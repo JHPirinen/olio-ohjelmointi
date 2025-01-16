@@ -1,14 +1,8 @@
-#include <iostream>
 #include "game.h"
-
-using namespace std;
-
-int play();
-void printGameResult();
 
 int main()
 {
-    play();
-    printGameResult();
+    Game randNumGame(10);
+    randNumGame.play();
     return 0;
 }

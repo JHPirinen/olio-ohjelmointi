@@ -5,17 +5,8 @@ class Game
 {
 public:
     Game(int);  //works if it was Game();
-    ~Game(); // works if deleted
+    ~Game();
     int play();
-
-    int getMaxNumber() const;
-    void setMaxNumber(int newMaxNumber);
-    int getPlayerGuess() const;
-    void setPlayerGuess(int newPlayerGuess);
-    int getRandomNumber() const;
-    void setRandomNumber(int newRandomNumber);
-    int getNumOfGuesses() const;
-    void setNumOfGuesses(int newNumOfGuesses);
 
 private:
     int maxNumber;

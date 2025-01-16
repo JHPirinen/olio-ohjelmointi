@@ -4,79 +4,46 @@
 
 using namespace std;
 
-Game::Game(int) //works if it was Game::Game()
+Game::Game(int maxNum) //works if it was Game::Game()
 {
     cout << "GAME CONSTRUCTOR: ";
-    maxNumber = 10;
+    maxNumber = maxNum;
+    numOfGuesses = 0;
+    playerGuess = 0;
+    randomNumber = 0;
     cout << "object initialized with " << maxNumber << " as a maximum value." << endl;
 }
 
-int Game::getMaxNumber() const
+Game::~Game()
 {
-    return maxNumber;
+    cout << "GAME DECONSTRUCTOR: object cleared from stack memory." << endl;
 }
 
-void Game::setMaxNumber(int newMaxNumber)
+int Game::play()
 {
-    maxNumber = newMaxNumber;
-}
-
-int Game::getPlayerGuess() const
-{
-    return playerGuess;
-}
-
-void Game::setPlayerGuess(int newPlayerGuess)
-{
-    playerGuess = newPlayerGuess;
-}
-
-int Game::getRandomNumber() const
-{
-    return randomNumber;
-}
-
-void Game::setRandomNumber(int newRandomNumber)
-{
-    randomNumber = newRandomNumber;
-}
-
-int Game::getNumOfGuesses() const
-{
-    return numOfGuesses;
-}
-
-void Game::setNumOfGuesses(int newNumOfGuesses)
-{
-    numOfGuesses = newNumOfGuesses;
-}
-
-Game randNumGame;
-
-void play(){
-    int gameOn = true;
-    int guess;
+    bool gameOn = true;
     srand(time(NULL));
-    randNumGame.setRandomNumber((rand() % randNumGame.getMaxNumber()) + 1);
-
+    randomNumber = ((rand() % maxNumber) + 1);
     while(gameOn == true){
-        cout << "Quess a number between 1-" << randNumGame.getMaxNumber() << "." << endl;
-        cin >> guess;
-        randNumGame.setPlayerGuess(guess);
-        randNumGame.setNumOfGuesses(randNumGame.getNumOfGuesses() + 1);
-        if(randNumGame.getPlayerGuess() == randNumGame.getRandomNumber()){
+        cout << "Quess a number between 1-" << maxNumber << "." << endl;
+        cin >> playerGuess;
+        numOfGuesses ++;
+        if(playerGuess == randomNumber){
             cout << "Your quess is correct!" << endl;
+            printGameResult();
             gameOn = false;
         }
-        else if(randNumGame.getPlayerGuess() < randNumGame.getRandomNumber()){
+        else if(playerGuess < randomNumber){
             cout << "Your quess is smaller." << endl;
         }
-        else if(randNumGame.getPlayerGuess() > randNumGame.getRandomNumber()){
+        else if(playerGuess > randomNumber){
             cout << "Your quess is larger." << endl;
         }
     }
+    return numOfGuesses;
 }
 
-void printGameResult(){
-    cout << "You quessed the corret number with " << randNumGame.getNumOfGuesses() << " quesses." << endl;
+void Game::printGameResult()
+{
+    cout << "You quessed the corret number with " << numOfGuesses << " quesses." << endl;
 }
