@@ -4,7 +4,7 @@
 
 using namespace std;
 
-Game::Game(int maxNum) //works if it was Game::Game()
+Game::Game(int maxNum)
 {
     cout << "GAME CONSTRUCTOR: ";
     maxNumber = maxNum;
