@@ -4,7 +4,7 @@
 class Game
 {
 public:
-    Game(int);  //works if it was Game();
+    Game(int);
     ~Game();
     int play();
 
