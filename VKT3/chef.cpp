@@ -1,14 +1,14 @@
 #include "chef.h"
 
-Chef::Chef(string)
+Chef::Chef(string name)
 {
-    chefName = "George";
-    cout << "Chef constuctor." << endl;
+    chefName = name;
+    cout << "Chef " << chefName << " constuctor." << endl;
 }
 
 Chef::~Chef()
 {
-    cout << "Chef deconstuctor." << endl;
+    cout << "Chef " << chefName << " deconstuctor." << endl;
 }
 
 string Chef::getName()
@@ -18,14 +18,14 @@ string Chef::getName()
 
 int Chef::makeSalad(int ingredients)
 {
-    cout << "Chef makeSalad function." << endl;
     int salads = ingredients / 5;
+    cout << "With " << ingredients << " ingredients chef " << chefName << " can make " << salads << " salad meals." << endl;
     return salads;
 }
 
 int Chef::makeSoup(int ingredients)
 {
-    cout << "Chef makeSoup function." << endl;
     int soups = ingredients / 3;
+    cout << "With " << ingredients << " ingredients chef " << chefName << " can make " << soups << " soup meals." << endl;
     return soups;
 }

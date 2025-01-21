@@ -1,15 +1,15 @@
 #include "italianchef.h"
 
-ItalianChef::ItalianChef(string)
+ItalianChef::ItalianChef(string name) : Chef(name)
 {
     chefName = "Mario";
-    cout << "Italian chef constuctor." << endl;
+    cout << "Italian chef " << chefName << " constuctor." << endl;
     password = "pizza";
 }
 
 ItalianChef::~ItalianChef()
 {
-    cout << "Italian chef dconstuctor." << endl;
+    cout << "Italian chef " << chefName << " dconstuctor." << endl;
 }
 
 bool ItalianChef::askSecret(string givenPassword, int givenFlour, int givenWater)
@@ -28,11 +28,12 @@ bool ItalianChef::askSecret(string givenPassword, int givenFlour, int givenWater
 
 int ItalianChef::makepizza(){
     int pizzas = 0;
-    if(flour >= water && water > 0){
-        pizzas = flour / 5;
-    }
-    else if(water >= flour && flour > 0){
+    if(flour >= water){
         pizzas = water / 5;
     }
+    else if(water > flour){
+        pizzas = flour / 5;
+    }
+    cout << "With " << flour << " flour and " << water << " water Italian chef " << chefName << " can make " << pizzas << " pizza meals." << endl;
     return pizzas;
 }
