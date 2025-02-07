@@ -10,5 +10,5 @@ string Seuraaja::getNimi(){
 }
 
 void Seuraaja::paivitys(string posti){
-    cout << "Seuraaja " << nimi << " sai viestin" << posti << endl;
+    cout << "Seuraaja " << nimi << " sai viestin " << posti << endl;
 }
