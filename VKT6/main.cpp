@@ -55,11 +55,7 @@ int main ()
                 student.printStudentInfo();
             }
             break;
-        case 4:
-            // Kysy käyttäjältä opiskelijan nimi
-            // Etsi studentListan opiskelijoista algoritmikirjaston
-            // find_if funktion avulla löytyykö käyttäjän antamaa nimeä
-            // listalta. Jos löytyy, niin tulosta opiskelijan tiedot.
+        case 4: // search student by naem
             cout << "Give the students name who you want to find: " << endl;
             cin >> target;
             it = find_if(studentList.begin(), studentList.end(),[target](Student &findStudent){
