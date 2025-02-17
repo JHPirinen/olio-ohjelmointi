@@ -32,7 +32,7 @@ int main ()
             cin >> studentName;
             cout << "Give the new students age: " << endl;
             cin >> studentAge;
-            studentList.push_back({studentName, studentAge});
+            studentList.emplace_back(studentName, studentAge);
             break;
         case 1: // print students
             for(auto &student: studentList){
